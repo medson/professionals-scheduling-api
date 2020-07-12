@@ -36,7 +36,7 @@ class ScheduleService {
     for (const key in keys) {
       schedule[keys[key]] = days[keys[key]]
     }
-    await Schedule.findOneAndUpdate(schedule.id, schedule)
+    await Schedule.findByIdAndUpdate(schedule._id, schedule)
 
     return { success: { message: `schedule ${params.scheduleId} updated with success` }, error: null, statusCode: 200 }
   }

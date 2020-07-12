@@ -18,7 +18,6 @@ class ScheduleController {
 
   async update (req, res) {
     const { success, error, statusCode } = await _scheduleService.update(req.params, req.body)
-
     if (error) return res.status(statusCode).json(error)
 
     return res.status(statusCode).json(success)

@@ -1,5 +1,22 @@
 version: "3"
 services:
+  api:
+    container_name: api
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 3000:3000
+    links:
+      - db
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+    restart: unless-stopped
+    environment:
+      - PORT=3000
+      - DB_HOST=mongodb://root:root@db:27017/schedule?authSource=admin
+
   db:
     image: mongo
     ports:
