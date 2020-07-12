@@ -13,7 +13,7 @@ routes.post('/professional/:id/schedule', ScheduleValidator.create(), ScheduleCo
 routes.put('/professional/:id/schedule/:scheduleId', ScheduleValidator.update(), ScheduleController.update)
 routes.delete('/professional/:id/schedule/:scheduleId', ScheduleValidator.destroy(), ScheduleController.destroy)
 
-routes.post('/apointment', AppointmentValidator.create(), ApointmentController.store)
-routes.get('/apointment', AppointmentValidator.get(), ApointmentController.index)
+routes.post('/appointment', AppointmentValidator.create(), ApointmentController.store)
+routes.get('/appointment', AppointmentValidator.get(), ApointmentController.index)
 
 module.exports = routes

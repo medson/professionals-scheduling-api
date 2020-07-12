@@ -1,8 +1,9 @@
 const { Professional } = require('../models')
 
 class ProfessionalService {
-  getAll () {
-    return Professional.find({})
+  async getAll () {
+    const professionals = await Professional.find({})
+    return { professionals: professionals, statusCode: 200 }
   }
 
   async create (professionalData) {
