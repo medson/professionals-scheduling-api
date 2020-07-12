@@ -4,32 +4,32 @@ const _scheduleService = require('../domain/services/ScheduleService')
  */
 class ScheduleController {
   async index (req, res) {
-    const schedules = await _scheduleService.getAll()
-    return res.status(200).json(schedules)
+    const { schedules, error, statusCode } = await _scheduleService.getAll()
+    return res.status(statusCode).json(schedules)
   }
 
   async store (req, res) {
-    const { schedule, error } = await _scheduleService.create(req.params.id, req.body)
+    const { schedule, error, statusCode } = await _scheduleService.create(req.params.id, req.body)
 
-    if (error) return res.status(400).json(error)
+    if (error) return res.status(statusCode).json(error)
 
-    return res.status(201).json(schedule)
+    return res.status(statusCode).json(schedule)
   }
 
   async update (req, res) {
-    const { success, error } = await _scheduleService.update(req.params, req.body)
+    const { success, error, statusCode } = await _scheduleService.update(req.params, req.body)
 
-    if (error) return res.status(404).json(error)
+    if (error) return res.status(statusCode).json(error)
 
-    return res.status(200).json(success)
+    return res.status(statusCode).json(success)
   }
 
   async destroy (req, res) {
-    const { success, error } = await _scheduleService.delete(req.params)
+    const { success, error, statusCode } = await _scheduleService.delete(req.params)
 
-    if (error) return res.status(404).json(error)
+    if (error) return res.status(statusCode).json(error)
 
-    return res.status(200).json(success)
+    return res.status(statusCode).json(success)
   }
 }
 

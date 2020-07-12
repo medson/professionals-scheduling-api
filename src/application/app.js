@@ -4,6 +4,9 @@ const routes = require('./routes')
 const settings = require('./settings')
 const mongoose = require('mongoose')
 const { errors } = require('celebrate')
+const swaggerDocument = require('../../swagger.json')
+const swaggerUi = require('swagger-ui-express')
+
 class App {
   constructor () {
     this.express = express()
@@ -31,6 +34,11 @@ class App {
   }
 
   setupRoutes () {
+    this.express.use(
+      '/api-docs',
+      swaggerUi.serve,
+      swaggerUi.setup(swaggerDocument)
+    )
     this.express.use('/api/v1', routes)
     this.express.use(errors())
   }

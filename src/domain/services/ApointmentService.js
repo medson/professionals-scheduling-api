@@ -77,7 +77,7 @@ class AppointmentService {
     scheduleAvailability.apointments.push(newAppointment)
 
     await Schedule.findByIdAndUpdate(scheduleAvailability._id, scheduleAvailability)
-    return { success: 'updated', error: null, statusCode: 200 }
+    return { success: 'Appointment created', error: null, statusCode: 200 }
   }
 }
 
