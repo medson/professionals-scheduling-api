@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "A Node.Js API",
-    "description": "An application built using express and mongodb",
+    "title": "Professional's Schedule API",
+    "description": "An API to manage schedules",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
@@ -14,7 +14,7 @@
   "tags": [
     {
       "name": "Professionals",
-      "description": "API for compare prices of diferent tariff calls"
+      "description": "API manage schedules of professionals"
     }
   ],
   "schemes": ["http"],
