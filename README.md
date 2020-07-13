@@ -9,7 +9,6 @@
 2. [Running the app](#running-the-app)
 3. [Documentation](#documentation)
 4. [Tests](#tests)
-5. [Decisions](#decisions)
 
 ## Installing Necessary Dependencies
 
