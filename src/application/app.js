@@ -17,7 +17,6 @@ class App {
 
   database () {
     mongoose.set('useFindAndModify', false)
-
     mongoose.connect(
       settings.db,
       {
@@ -26,6 +25,7 @@ class App {
         useUnifiedTopology: true
       }
     )
+    this.express._connection = mongoose.connection
   }
 
   setupMiddlewares () {

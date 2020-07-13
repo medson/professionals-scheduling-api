@@ -1,4 +1,4 @@
-const { Schedule } = require('../models')
+const { Schedule, Professional } = require('../models')
 const Helper = require('./helpers')
 class ScheduleService {
   async getAll () {
@@ -7,11 +7,16 @@ class ScheduleService {
   }
 
   async create (userId, scheduleData) {
-    const checkIfExists = await Schedule.findOne({ professional: userId })
+    const professional = await Professional.findOne({ _id: userId })
+    const checkIfExists = await Schedule.findOne({ professional: userId }).populate('professional')
+    if (!professional) {
+      return { schedule: null, error: { message: 'Professional not exists' }, statusCode: 400 }
+    }
 
     if (checkIfExists) {
-      return { schedule: null, error: { message: 'Already registered' }, statusCode: 400 }
+      return { schedule: null, error: { message: 'Already Exists' }, statusCode: 400 }
     }
+
     const { days, availability } = new Helper().setDaysRange(scheduleData)
 
     if (availability < 1) {
@@ -22,7 +27,7 @@ class ScheduleService {
 
     const newProf = await Schedule.create({ professional: userId, monday, tuesday, wednesday, thursday, friday })
 
-    return { schedule: { newProf }, error: null, statusCode: 201 }
+    return { schedule: newProf, error: null, statusCode: 201 }
   }
 
   async update (params, dataToUpdate) {
