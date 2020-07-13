@@ -2,7 +2,7 @@ const { Professional } = require('../models')
 
 class ProfessionalService {
   async getAll () {
-    const professionals = await Professional.find({})
+    const professionals = await Professional.find({}).sort('createdAt')
     return { professionals: professionals, statusCode: 200 }
   }
 

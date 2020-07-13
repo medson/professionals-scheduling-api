@@ -77,8 +77,6 @@ class Helper {
         return 'thursday'
       case 5:
         return 'friday'
-      default:
-        return 'friday'
     }
   }
 
