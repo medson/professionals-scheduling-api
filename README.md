@@ -42,7 +42,7 @@ api    | Server is running on port 3000
 
 ## Tests
 
-For run the tests just go to project root path and run `make tests`. You can access the coverage opening in your browser the `index.html` file generated inside,`src/__tests__/lcov-report/` at the root of the project, we managed to keep the coverage above 97. The test setup already configurarted in .env.test file.
+For run the tests just go to project root path and run `yarn add or npm i` and after `make tests`. You can access the coverage opening in your browser the `index.html` file generated inside,`src/__tests__/lcov-report/` at the root of the project, we managed to keep the coverage above 97. The test setup already configurarted in .env.test file.
 
 ## Documentation
 
